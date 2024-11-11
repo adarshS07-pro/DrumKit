@@ -1,0 +1,31 @@
+<html>
+<body>
+<h3>Building Countdown Timer Using Date Function</h3>
+<p id="demo"></p>
+<script>
+var tDate = new Date(); 
+document.write("<br>" + "Today's Date is: " + tDate); 
+document.write("<br>" + "Month is: " + tDate.getMonth()); 
+document.write("<br>" + "Day is: " + tDate.getDate()); 
+document.write("<br>" + "Time is: "+tDate.getTime()+"msec"); 
+var tt = tDate.getTime(); 
+var countDownDate = new Date("Jan 5, 2025 15:37:25").getTime(); 
+var diff = countDownDate - tt; 
+document.write('<br>' + "Time in msec from 1 Jan 1970 till Jan 5, 2025 is: "+countDownDate); 
+document.write("<br>" + "Difference: " + diff);
+
+// Update the countdown every 1 second
+var x = setInterval(myTimer, 1000); 
+function myTimer() { var now = new Date().getTime(); 
+    var distance = countDownDate - now; 
+    var days = Math.floor(distance/(1000*60*60*24)); 
+    var hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    var minutes = Math.floor((distance % (1000*60*60))/(1000*60)); 
+    var seconds = Math.floor((distance % (1000*60))/1000);
+
+// Display the result in the element with id="demo"
+document.getElementById("demo").innerHTML = days + "d" + hours + "h" + minutes + "m" + seconds + "s"; 
+if (distance < 0) { clearInterval(x); document.getElementById("demo").innerHTML = "EXPIRED"; } }
+</script>
+</body>
+</html>

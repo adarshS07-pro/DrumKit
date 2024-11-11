@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Demonstrate mouseover() and focusFunction()</h2>
+<h3 id="demo" onmouseover="mouseover()" onmouseout="mouseout()">Mouse over me</h3>
+<input type="text" placeholder="Enter Text" id="focus" onfocus="focusFunction()" onblur="blurFunction()">
+<script>
+function mouseover() { document.getElementById("demo").style.color = "red"; }
+function mouseout() { document.getElementById("demo").style.color = "black"; }
+function focusFunction() { document.getElementById("focus").style.background = "white"; }
+function blurFunction() { document.getElementById("focus").style.background = "red"; }
+</script>
+</body>
+</html>

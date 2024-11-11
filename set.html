@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstrate Set Operations</title>
+    <h2>Demonstrate Set Operations</h2>
+    <p>Set A: {'apple', 'mango', 'orange'}</p>
+    <p>Set B: {'grapes', 'apple', 'banana'}</p>
+    <p>Set C: {'apple', 'orange'}</p>
+    <button onclick="union()">Union of Sets</button>
+    <button onclick="intersection()">Intersection of Sets</button>
+    <button onclick="difference()">Difference of Sets</button>
+    <button onclick="subset()">Subset of Set</button>
+    <p id="result"></p> <!-- To display the result -->
+</head>
+<body>
+<script>
+    const setA = new Set(['apple', 'mango', 'orange']);
+    const setB = new Set(['grapes', 'apple', 'banana']);
+    const setC = new Set(['apple', 'orange']);
+
+    function union() {
+        let unionSet = new Set(setA);  
+        for (let i of setB) {
+            unionSet.add(i);  
+        }
+        document.getElementById("result").innerHTML = "Union of A and B: " + Array.from(unionSet).join(", ");
+    }
+
+    
+    function intersection() {
+        let intersectionSet = new Set();
+        for (let i of setB) {
+            if (setA.has(i)) {
+                intersectionSet.add(i);  
+            }
+        }
+        document.getElementById("result").innerHTML = "Intersection of A and B: " + Array.from(intersectionSet).join(", ");
+    }
+
+    
+    function difference() {
+        let differenceSet = new Set(setA);  
+        for (let i of setB) {
+            differenceSet.delete(i);  
+        }
+        document.getElementById("result").innerHTML = "Difference of A and B (A - B): " + Array.from(differenceSet).join(", ");
+    }
+
+    
+    function subset() {
+        for (let i of setC) {
+            if (!setA.has(i)) {  
+                document.getElementById("result").innerHTML = "Set C is not a subset of Set A.";
+                return;
+            }
+        }
+        document.getElementById("result").innerHTML = "Set C is a subset of Set A.";
+    }
+</script>
+</body>
+</html>

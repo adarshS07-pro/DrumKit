@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Comparison</title>
+</head>
+<body>
+    <h2>String Comparison</h2>
+    
+    <input type="text" id="string1" placeholder="Enter first string" />
+    <input type="text" id="string2" placeholder="Enter second string" />
+    <button onclick="compareStrings()">Compare Strings</button>
+    
+    <p id="equalCheck"></p>
+    <p id="strictEqualCheck"></p>
+    <p id="localeCompareCheck"></p>
+    <p id="caseInsensitiveCheck"></p>
+
+    <script>
+        function compareStrings() {
+            const str1 = document.getElementById('string1').value;
+            const str2 = document.getElementById('string2').value;
+
+            if (!str1 || !str2) {
+                alert('Please enter both strings');
+                return;
+            }
+
+            const equalCheck = (str1 == str2) ? 'Equal with ==' : 'Not equal with ==';
+            const strictEqualCheck = (str1 === str2) ? 'Strictly equal with ===' : 'Not strictly equal with ===';
+            const localeCompareCheck = str1.localeCompare(str2);
+            const localeCompareResult = localeCompareCheck === 0 ? 'Strings are equal using localeCompare()' 
+                                      : localeCompareCheck < 0 ? 'First string is smaller using localeCompare()' 
+                                      : 'First string is larger using localeCompare()';
+
+            const caseInsensitiveCheck = str1.toLowerCase() === str2.toLowerCase() ? 'Equal ignoring case' : 'Not equal ignoring case';
+
+            document.getElementById('equalCheck').innerText = equalCheck;
+            document.getElementById('strictEqualCheck').innerText = strictEqualCheck;
+            document.getElementById('localeCompareCheck').innerText = localeCompareResult;
+            document.getElementById('caseInsensitiveCheck').innerText = caseInsensitiveCheck;
+        }
+    </script>
+</body>
+</html>

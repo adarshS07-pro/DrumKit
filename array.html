@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operations</title>
+</head>
+<body>
+    <h3>Demonstrate Array Operations</h3>
+    
+    <button onclick="removeElement()">Remove Element</button>
+    <button onclick="chkValue()">Check Value</button>
+    <button onclick="emptyArray()">Empty Array</button>
+
+    <p id="output"></p>
+
+    <script>
+        function removeElement() {
+            var shoeBrand = ["Nike", "Adidas", "Puma", "Woodland"];
+            var result = "Elements in array before removing: " + shoeBrand.join(", ") + "<br>";
+
+            var poppedElement = shoeBrand.pop();
+            result += "Removed last element from array using pop(): " + poppedElement + "<br>";
+            result += "New array after pop: " + shoeBrand.join(", ") + "<br>";
+
+            shoeBrand.splice(1, 2);
+            result += "Removed elements from array using splice(1, 2):<br>";
+            result += "New array after splice: " + shoeBrand.join(", ") + "<br>";
+
+            document.getElementById("output").innerHTML = result;
+        }
+
+        function chkValue() {
+            var carBrand = ["Mercedes", "BMW", "Jeep", "Porsche"];
+            var result = "Array before checking value: " + carBrand.join(", ") + "<br>";
+
+            var str = prompt("Enter carBrand Value");
+
+            const hasValue = carBrand.includes(str);
+            result += "Array after checking: " + carBrand.join(", ") + "<br>";
+            result += "Value entered: " + str + "<br>";
+
+            if (hasValue) {
+                result += "Array contains: " + str + "<br>";
+            } else {
+                result += "Array does not contain: " + str + "<br>";
+            }
+
+            document.getElementById("output").innerHTML = result;
+        }
+
+        function emptyArray() {
+            var carBrand = ["Mercedes", "BMW", "Jeep", "Porsche"];
+            var result = "Array before emptying: " + carBrand.join(", ") + "<br>";
+
+            carBrand.splice(0, carBrand.length);
+            result += "Array after emptying: " + carBrand.join(", ") + "<br>";
+
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+</body>
+</html>

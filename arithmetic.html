@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+<input id="text1" placeholder="Enter Number"> 
+<input id="text2" placeholder="Enter Number"><br>
+<button onclick="sum()" id="btn">Add</button> 
+<button onclick="diff()" id="btn">Subtract</button> 
+<button onclick="mult()" id="btn">Multiply</button> 
+<button onclick="div()" id="btn">Divide</button>
+<input id="result" placeholder="Result">
+<script>
+function sum() { 
+    var x = parseFloat(document.getElementById("text1").value); 
+    var y = parseFloat(document.getElementById("text2").value); 
+    var result = x + y; 
+    document.getElementById("result").value = "Sum: " + result; }
+function diff() { 
+    var x = parseFloat(document.getElementById("text1").value); 
+    var y = parseFloat(document.getElementById("text2").value); 
+    var result = x - y; 
+    document.getElementById("result").value = "Difference: " + result; }
+function mult() { 
+    var x = parseFloat(document.getElementById("text1").value); 
+    var y = parseFloat(document.getElementById("text2").value); 
+    var result = x * y; 
+    document.getElementById("result").value = "Product: " + result; }
+function div() { 
+    var x = parseFloat(document.getElementById("text1").value); 
+    var y = parseFloat(document.getElementById("text2").value); 
+    var result = x/y; 
+    document.getElementById("result").value = "Quotient: " + result; }
+</script>
+</body>
+</html>
